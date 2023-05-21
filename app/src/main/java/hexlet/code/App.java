@@ -6,7 +6,7 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import java.util.concurrent.Callable;
 
-@Command(name = "gendiff", mixinStandardHelpOptions = true, description = "Compares two configuration files and shows a difference.")
+@Command(name = "gendiff", mixinStandardHelpOptions = true, version = "gendiff 1.0", description = "Compares two configuration files and shows a difference.")
 class App implements Callable<Integer> {
     @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
@@ -18,12 +18,25 @@ class App implements Callable<Integer> {
     boolean usageHelpRequested;
     @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
     boolean versionInfoRequested;
+
+    private static final int SUCCESS_EXIT_CODE = 0;
+    private static final int ERROR_EXIT_CODE = 1;
     @Override
     public Integer call() throws Exception {
-        System.out.println(Differ.generate(filepath1, filepath2));
-        return 0;
+        String formattedDiff = Differ.generate(filepath1, filepath2, formatName);
+        System.out.println(formattedDiff);
+        return SUCCESS_EXIT_CODE;
     }
-    public static void main(String[] args) {
+
+//    try {
+//        String formattedDiff = Differ.generate(filePath1, filePath2, formatName);
+//        System.out.println(formattedDiff);
+//    } catch (Exception e) {
+//        System.err.println(e.getMessage());
+//        return ERROR_EXIT_CODE;
+//    }
+
+    public static void main(String... args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
