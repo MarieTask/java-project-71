@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Differ {
-    public static String generate(String filepath1, String filepath2) throws Exception {
+    public static String generate(String filepath1, String filepath2, String format) throws Exception {
         // Создание файла:
         // Получаем путь к нужному файлу
         Path getFirstPath = Paths.get(filepath1); //Преобразует строку или строки, которые при соединении образуют строку пути, в объект класса Path.
@@ -43,14 +43,15 @@ public class Differ {
         for(String key: keyFile) {
             // без изменений
             if (map1.containsKey(key) && map2.containsKey(key) && map1.get(key).equals(map2.get(key))) {
-                result += String.format("    %s: %s\n", key, map1.get(key));
-            } else if () {
-//                result += String.format("    %s: %s\n", key, );
-            } else if () {
-//                result += String.format("    %s: %s\n", key, );
-            } else () {
-//                result += String.format("    %s: %s\n", key, );
+                result += String.format("      %s: %s\n", key, map1.get(key));
+            } else if (map1.containsKey(key) && map2.containsKey(key) && !map1.get(key).equals(map2.get(key))) {
+                result += String.format("    - %s: %s\n    + %s: $s\n", key, map1.get(key), key, map2.get(key));
+            } else if (!map1.containsKey(key)) {
+                result += String.format("    + %s: %s\n", key, map2.get(key));
+            } else {
+                result += String.format("    - %s: %s\n", key, map1.get(key));
             }
         }
+        return result + "}";
     }
 }
