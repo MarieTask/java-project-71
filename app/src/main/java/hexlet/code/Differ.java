@@ -41,13 +41,16 @@ public class Differ {
 
         String result = "{\n";
         for(String key: keyFile) {
-            // без изменений
+            // No changes
             if (map1.containsKey(key) && map2.containsKey(key) && map1.get(key).equals(map2.get(key))) {
                 result += String.format("      %s: %s\n", key, map1.get(key));
+                // Key value was update
             } else if (map1.containsKey(key) && map2.containsKey(key) && !map1.get(key).equals(map2.get(key))) {
                 result += String.format("    - %s: %s\n    + %s: $s\n", key, map1.get(key), key, map2.get(key));
+                // Key was added
             } else if (!map1.containsKey(key)) {
                 result += String.format("    + %s: %s\n", key, map2.get(key));
+                // Key was deleted
             } else {
                 result += String.format("    - %s: %s\n", key, map1.get(key));
             }
