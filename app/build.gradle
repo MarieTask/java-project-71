@@ -37,6 +37,12 @@ test {
     useJUnitPlatform()
 }
 
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
 checkstyle {
     toolVersion = '10.3.3'
 }

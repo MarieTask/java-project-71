@@ -34,7 +34,7 @@ public class Differ {
         Path getAbsSecondPath = getSecondPath.toAbsolutePath().normalize();
         String file2 = Files.readString(getAbsSecondPath);
         ObjectMapper objectMapperFile2 = new ObjectMapper();
-        Map<String, Object> map2 = objectMapperFile2.readValue(file2, new TypeReference<>(){});
+        Map<String, Object> map2 = objectMapperFile2.readValue(file2, new TypeReference<Map<String,Object>>(){});
 
         Set<String> keyFile = new TreeSet<>(map1.keySet());
         keyFile.addAll(map2.keySet());
@@ -46,7 +46,7 @@ public class Differ {
                 result += String.format("      %s: %s\n", key, map1.get(key));
                 // Key value was update
             } else if (map1.containsKey(key) && map2.containsKey(key) && !map1.get(key).equals(map2.get(key))) {
-                result += String.format("    - %s: %s\n    + %s: $s\n", key, map1.get(key), key, map2.get(key));
+                result += String.format("    - %s: %s\n    + %s: %s\n", key, map1.get(key), key, map2.get(key));
                 // Key was added
             } else if (!map1.containsKey(key)) {
                 result += String.format("    + %s: %s\n", key, map2.get(key));
