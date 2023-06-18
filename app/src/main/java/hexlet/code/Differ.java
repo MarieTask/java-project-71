@@ -6,13 +6,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
         // Создание файла:
         // Получаем путь к нужному файлу
-        Path getFirstPath = Paths.get(filepath1); //Преобразует строку или строки, которые при соединении образуют строку пути, в объект класса Path.
+        Path getFirstPath = Paths.get(filepath1);
+        // Преобразует строку или строки, которые при соединении образуют строку пути, в объект класса Path.
         // Формируем абсолютный путь,
         // если filePath будет содержать относительный путь,
         // то мы всегда будет работать с абсолютным
@@ -28,19 +31,20 @@ public class Differ {
         //чего ожидать от файла JSON, который мы пытаемся спарсить.
         // ObjectMapper превратит имя каждой переменной в JSON в ключ для Map,
         // а значение этой переменной — в значение по этому ключу.
-        Map<String, Object> map1 = objectMapperFile1.readValue(file1, new TypeReference<Map<String,Object>>(){}); //JSON to Java Object
+        Map<String, Object> map1 = objectMapperFile1.readValue(file1, new TypeReference<Map<String, Object>>() { });
+        //JSON to Java Object
 
         Path getSecondPath = Paths.get(filepath2);
         Path getAbsSecondPath = getSecondPath.toAbsolutePath().normalize();
         String file2 = Files.readString(getAbsSecondPath);
         ObjectMapper objectMapperFile2 = new ObjectMapper();
-        Map<String, Object> map2 = objectMapperFile2.readValue(file2, new TypeReference<Map<String,Object>>(){});
+        Map<String, Object> map2 = objectMapperFile2.readValue(file2, new TypeReference<Map<String, Object>>() { });
 
         Set<String> keyFile = new TreeSet<>(map1.keySet());
         keyFile.addAll(map2.keySet());
 
         String result = "{\n";
-        for(String key: keyFile) {
+        for (String key: keyFile) {
             // No changes
             if (map1.containsKey(key) && map2.containsKey(key) && map1.get(key).equals(map2.get(key))) {
                 result += String.format("      %s: %s\n", key, map1.get(key));

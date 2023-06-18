@@ -30,8 +30,4 @@ update-deps:
 
 build-run: build run
 
-
-run-dist:
-	./build/install/app/bin/app
-
 .PHONY: build
