@@ -3,6 +3,7 @@ package hexlet.code;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,33 +13,18 @@ import java.util.TreeSet;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
-        // Создание файла:
-        // Получаем путь к нужному файлу
-        Path getFirstPath = Paths.get(filepath1);
-        // Преобразует строку или строки, которые при соединении образуют строку пути, в объект класса Path.
-        // Формируем абсолютный путь,
-        // если filePath будет содержать относительный путь,
-        // то мы всегда будет работать с абсолютным
-        Path getAbsFirstPath = getFirstPath.toAbsolutePath().normalize();
-        // Читаем файл
-        String file1 = Files.readString(getAbsFirstPath); //переводим строку в данные (файл)
-        // Создайте объект ObjectMapper, который является основным классом для обработки JSON-данных в Jackson:
-        ObjectMapper objectMapperFile1 = new ObjectMapper();
-        // Используйте метод readValue() для чтения JSON-файла и преобразования его в объект Java:
-        // Метод readValue() используется для преобразования (десериализации) JSON из строки, потока или файла в POJO.
-
+        String fileContent1 = getFileContent(filepath1);
+        String fileFormat1 = getFileFormat(filepath1);
         //Мы можем преобразовать JSON в Java Map, что очень удобно, если мы не знаем,
         //чего ожидать от файла JSON, который мы пытаемся спарсить.
         // ObjectMapper превратит имя каждой переменной в JSON в ключ для Map,
         // а значение этой переменной — в значение по этому ключу.
-        Map<String, Object> map1 = objectMapperFile1.readValue(file1, new TypeReference<Map<String, Object>>() { });
+        Map<String, Object> map1 = Parser.parse(fileContent1, fileFormat1);
         //JSON to Java Object
 
-        Path getSecondPath = Paths.get(filepath2);
-        Path getAbsSecondPath = getSecondPath.toAbsolutePath().normalize();
-        String file2 = Files.readString(getAbsSecondPath);
-        ObjectMapper objectMapperFile2 = new ObjectMapper();
-        Map<String, Object> map2 = objectMapperFile2.readValue(file2, new TypeReference<Map<String, Object>>() { });
+        String fileContent2 = getFileContent(filepath2);
+        String fileFormat2 = getFileFormat(filepath2);
+        Map<String, Object> map2 = Parser.parse(fileContent2, fileFormat2);
 
         Set<String> keyFile = new TreeSet<>(map1.keySet());
         keyFile.addAll(map2.keySet());
@@ -60,5 +46,25 @@ public class Differ {
             }
         }
         return result + "}";
+    }
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
+    public static Path getAbsolutePath(String filepath) {
+        // Создание файла:
+        // Получаем путь к нужному файлу
+        Path pathFile = Paths.get(filepath);
+        // Преобразует строку или строки, которые при соединении образуют строку пути, в объект класса Path.
+        // Формируем абсолютный путь,
+        // если filePath будет содержать относительный путь,
+        // то мы всегда будет работать с абсолютным
+        return pathFile.toAbsolutePath().normalize();
+    }
+    public static String getFileFormat(String filepath) {
+        String absPath = getAbsolutePath(filepath).toString();
+        return absPath.substring(absPath.indexOf(".") + 1);
+    }
+    public static String getFileContent(String filepath) throws IOException {
+        return Files.readString(getAbsolutePath(filepath));
     }
 }
