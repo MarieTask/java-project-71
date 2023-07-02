@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DifferTest {
-    private static String DEFAULT_FORMAT = "stylish";
+    private final String DEFAULT_FORMAT = "stylish";
     private static String jsonFile1;
     private static String jsonFile2;
     private static String jsonParsingResult;
