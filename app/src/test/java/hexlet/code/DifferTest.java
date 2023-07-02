@@ -28,7 +28,7 @@ public class DifferTest {
         yamlFile2 = "./src/test/resources/file2.json";
         stylishParsingResult = Files.readString(Paths.get("./src/test/resources/stylishParsingResult"));
         jsonParsingResult = Files.readString(Paths.get("./src/test/resources/jsonParsingResult"));
-        yamlParsingResult = Files.readString(Paths.get("./src/test/resources/yamlParsingResult"));
+        yamlParsingResult = Files.readString(Paths.get("./src/test/resources/ymlParsingResult"));
     }
     @Test
     public void testDefaultFormat() throws Exception {
