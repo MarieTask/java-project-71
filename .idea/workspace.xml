@@ -5,17 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="acfa3709-faa3-4acd-986b-0eaa2c722ac5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/java-project-71.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/java-project-71.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/main/hexlet/code/Differ$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/main/hexlet/code/Differ$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/classes/java/main/hexlet/code/Differ.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/classes/java/main/hexlet/code/Differ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/install/app/bin/app" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/install/app/bin/app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/install/app/bin/app.bat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/install/app/bin/app.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/install/app/lib/app-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/install/app/lib/app-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/libs/app-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/libs/app-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/hexlet/code/DifferTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/hexlet/code/DifferTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/scripts/app" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/scripts/app" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/scripts/app.bat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/scripts/app.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/file1.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/file1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/file1.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/file1.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/file2.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/file2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/file2.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/file2.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/resources/stylishParsingResult" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/stylishParsingResult" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +98,8 @@
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="gradle run" />
       <command value="gradle checkstyleMain" />
+      <command value="gradle run" />
       <command value="gradle clean" />
       <command value="gradle installDist" />
     </option>
@@ -105,7 +112,7 @@
     </option>
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.DifferTest.testJSON">
+  <component name="RunManager" selected="Gradle.app [installDist]">
     <configuration name="app [checkstyleMain]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />

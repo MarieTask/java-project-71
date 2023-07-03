@@ -19,8 +19,8 @@ public class DifferTest {
     public static void beforeAll() throws Exception {
         jsonFile1 = "./src/test/resources/file1.json";
         jsonFile2 = "./src/test/resources/file2.json";
-        yamlFile1 = "./src/test/resources/file1.json";
-        yamlFile2 = "./src/test/resources/file2.json";
+        yamlFile1 = "./src/test/resources/file1.yml";
+        yamlFile2 = "./src/test/resources/file2.yml";
         stylishParsingResult = Files.readString(Paths.get("./src/test/resources/stylishParsingResult"));
     }
     @Test
