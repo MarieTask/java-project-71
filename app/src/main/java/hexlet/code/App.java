@@ -22,7 +22,7 @@ class App implements Callable<Integer> {
     boolean versionInfoRequested;
 
     private static final int SUCCESS_EXIT_CODE = 0;
-    private static final int ERROR_EXIT_CODE = 1;
+//    private static final int ERROR_EXIT_CODE = 1;
     @Override
     public Integer call() throws Exception {
         String formattedDiff = Differ.generate(filepath1, filepath2, format);

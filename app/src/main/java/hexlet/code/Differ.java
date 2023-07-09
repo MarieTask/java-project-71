@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -29,17 +30,17 @@ public class Differ {
         String result = "{\n";
         for (String key: keyFile) {
             // No changes
-            if (map1.containsKey(key) && map2.containsKey(key) && map1.get(key).equals(map2.get(key))) {
-                result += String.format("      %s: %s\n", key, map1.get(key));
+            if (map1.containsKey(key) && map2.containsKey(key) && Objects.equals(map1.get(key), (map2.get(key)))) {
+                result += String.format("    %s: %s\n", key, map1.get(key));
                 // Key value was update
-            } else if (map1.containsKey(key) && map2.containsKey(key) && !map1.get(key).equals(map2.get(key))) {
-                result += String.format("    - %s: %s\n    + %s: %s\n", key, map1.get(key), key, map2.get(key));
+            } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(map1.get(key), (map2.get(key)))) {
+                result += String.format("  - %s: %s\n  + %s: %s\n", key, map1.get(key), key, map2.get(key));
                 // Key was added
-            } else if (!map1.containsKey(key)) {
-                result += String.format("    + %s: %s\n", key, map2.get(key));
+            } else if (!map1.containsKey(key) && map2.containsKey(key)) {
+                result += String.format("  + %s: %s\n", key, map2.get(key));
                 // Key was deleted
             } else {
-                result += String.format("    - %s: %s\n", key, map1.get(key));
+                result += String.format("  - %s: %s\n", key, map1.get(key));
             }
         }
         return result + "}";

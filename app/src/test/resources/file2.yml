@@ -1,4 +1,3 @@
----
 setting1: Another value
 setting2: 300
 setting3: none
@@ -28,6 +27,5 @@ chars1:
   - c
 chars2: false
 obj1:
-  nestedKey: value
-  isNested: true
-...
+  - nestedKey: value
+    isNested: true
