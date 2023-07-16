@@ -23,28 +23,8 @@ public class Differ {
         String fileContent2 = getFileContent(filepath2);
         String fileFormat2 = getFileFormat(filepath2);
         Map<String, Object> map2 = Parser.parse(fileContent2, fileFormat2);
-
-        Set<String> keyFile = new TreeSet<>(map1.keySet());
-        keyFile.addAll(map2.keySet());
-
-        String result = "{\n";
-        for (String key: keyFile) {
-            // No changes
-            if (map1.containsKey(key) && map2.containsKey(key) && Objects.equals(map1.get(key), (map2.get(key)))) {
-                result += String.format("    %s: %s\n", key, map1.get(key));
-                // Key value was update
-            } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(map1.get(key), (map2.get(key)))) {
-                result += String.format("  - %s: %s\n  + %s: %s\n", key, map1.get(key), key, map2.get(key));
-                // Key was added
-            } else if (!map1.containsKey(key) && map2.containsKey(key)) {
-                result += String.format("  + %s: %s\n", key, map2.get(key));
-                // Key was deleted
-            } else {
-                result += String.format("  - %s: %s\n", key, map1.get(key));
-            }
-        }
-        return result + "}";
     }
+
     public static String generate(String filepath1, String filepath2) throws Exception {
         return generate(filepath1, filepath2, "stylish");
     }

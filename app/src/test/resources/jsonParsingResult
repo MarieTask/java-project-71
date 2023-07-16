@@ -1,23 +1,41 @@
-    chars1: [a, b, c]
-  - chars2: [d, e, f]
-  + chars2: false
-  - checked: false
-  + checked: true
-  - default: null
-  + default: [value1, value2]
-  - id: 45
-  + id: null
-  - key1: value1
-  + key2: value2
-    numbers1: [1, 2, 3, 4]
-  - numbers2: [2, 3, 4, 5]
-  + numbers2: [22, 33, 44, 55]
-  - numbers3: [3, 4, 5]
-  + numbers4: [4, 5, 6]
-  + obj1: {nestedKey=value, isNested=true}
-  - setting1: Some value
-  + setting1: Another value
-  - setting2: 200
-  + setting2: 300
-  - setting3: true
-  + setting3: none
+[ {
+  "key": "chars1",
+  "Old value": ["a", "b", "c"]
+  "status": "no changes"
+}, {
+  "key": "chars2",
+  "Old value": ["d", "e", "f"]
+  "New value": false
+  "status": "updated"
+}, {
+  "key": "checked",
+  "Old value": false
+  "New value": true
+  "status": "updated"
+}, {
+  "key": "default",
+  "Old value": null
+  "New value": ["value1", "value2"]
+  "status": "updated"
+}, {
+  "key": "id",
+  "Old value": 45
+  "New value": null
+  "status": "updated"
+}, {
+  "key": "key1",
+  "Old value": "value1"
+  "New value": "value2"
+  "status": "updated"
+}, {
+  "key": "numbers1",
+  "Old value": [1, 2, 3, 4]
+  "status": "no changes"
+}, {
+  "key": "numbers2",
+  "Old value": [2, 3, 4, 5]
+  "New value": [22, 33, 44, 55]
+  "status": "updated"
+}, {
+
+}]
