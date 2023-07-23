@@ -16,7 +16,7 @@ public class Plain {
                 sb.append(String.format("Property '%s' was added with value: %s\n", map.get("key"), correctView(map.get("New value"))));
             }
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 
     public static Object correctView(Object obj) {
