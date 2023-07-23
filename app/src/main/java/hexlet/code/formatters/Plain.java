@@ -9,7 +9,7 @@ public class Plain {
         for (Map<String, Object> map: data) {
             if (map.get("status").equals("updated")) {
                 sb.append(String.format("Property '%s' was updated. From %s to %s\n", map.get("key"), correctView(map.get("Old value")),
-                        map.get("New value")));
+                        correctView(map.get("New value"))));
             } else if (map.get("status").equals("deleted")) {
                 sb.append(String.format("Property '%s' was removed\n", map.get("key")));
             } else if (map.get("status").equals("added")) {
