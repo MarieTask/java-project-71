@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Plain {
     public static String getPlain(List<Map<String, Object>> data) {
-        StringBuilder sb = new StringBuilder("{\n");
+        StringBuilder sb = new StringBuilder();
         for (Map<String, Object> map: data) {
             if (map.get("status").equals("updated")) {
                 sb.append(String.format("Property '%s' was updated. From %s to %s\n", map.get("key"), correctView(map.get("Old value")),
@@ -16,7 +16,7 @@ public class Plain {
                 sb.append(String.format("Property '%s' was added with value: %s\n", map.get("key"), correctView(map.get("New value"))));
             }
         }
-        return sb + "}";
+        return sb.toString();
     }
 
     public static Object correctView(Object obj) {
