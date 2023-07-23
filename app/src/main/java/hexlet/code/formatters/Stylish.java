@@ -21,6 +21,6 @@ public class Stylish {
                 sb.append(String.format("  - %s: %s\n", map.get("key"), map.get("Old value")));
             }
         }
-        return sb + "}";
+        return sb + "}\n";
     }
 }
