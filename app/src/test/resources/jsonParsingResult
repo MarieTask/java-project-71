@@ -25,8 +25,11 @@
 }, {
   "key" : "key1",
   "Old value" : "value1",
+  "status" : "deleted"
+}, {
+  "key" : "key2",
   "New value" : "value2",
-  "status" : "updated"
+  "status" : "added"
 }, {
   "key" : "numbers1",
   "Old value" : [ 1, 2, 3, 4 ],
