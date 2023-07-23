@@ -27,5 +27,5 @@ chars1:
   - c
 chars2: false
 obj1:
-  - nestedKey: value
-    isNested: true
+  nestedKey: value
+  isNested: true
