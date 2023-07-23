@@ -10,7 +10,7 @@ public class Json {
     public static String getJson(List<Map<String, Object>> data) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.writeValueAsString(data);
+            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(data);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

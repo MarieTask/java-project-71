@@ -11,7 +11,7 @@ public class Formatter {
         return switch (format) {
             case "stylish" -> Stylish.getStylish(data);
             case "json" -> Json.getJson(data);
-            default -> throw new IllegalArgumentException("Unknown data format" + format);
+            default -> throw new IllegalArgumentException("Unknown data format:" + format);
         };
     }
 }
