@@ -1,10 +1,10 @@
 [ {
   "key" : "chars1",
-  "Old value" : ["a", "b", "c"],
+  "Old value" : [ "a", "b", "c" ],
   "status" : "no changes"
 }, {
   "key" : "chars2",
-  "Old value" : ["d", "e", "f"],
+  "Old value" : [ "d", "e", "f" ],
   "New value" : false,
   "status" : "updated"
 }, {
@@ -15,7 +15,7 @@
 }, {
   "key" : "default",
   "Old value" : null,
-  "New value" : ["value1", "value2"],
+  "New value" : [ "value1", "value2" ],
   "status" : "updated"
 }, {
   "key" : "id",
@@ -29,20 +29,20 @@
   "status" : "updated"
 }, {
   "key" : "numbers1",
-  "Old value" : [1, 2, 3, 4],
+  "Old value" : [ 1, 2, 3, 4 ],
   "status" : "no changes"
 }, {
   "key" : "numbers2",
-  "Old value" : [2, 3, 4, 5],
-  "New value" : [22, 33, 44, 55],
+  "Old value" : [ 2, 3, 4, 5 ],
+  "New value" : [ 22, 33, 44, 55 ],
   "status" : "updated"
 }, {
-  "key" : "number3",
-  "Old value" : [3, 4, 5],
+  "key" : "numbers3",
+  "Old value" : [ 3, 4, 5 ],
   "status" : "deleted"
 }, {
-  "key" : "number4",
-  "New value" : [4, 5, 6],
+  "key" : "numbers4",
+  "New value" : [ 4, 5, 6 ],
   "status" : "added"
 }, {
   "key" : "obj1",
