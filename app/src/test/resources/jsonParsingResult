@@ -1,41 +1,69 @@
 [ {
-  "key": "chars1",
-  "Old value": ["a", "b", "c"]
-  "status": "no changes"
+  "key" : "chars1",
+  "Old value" : ["a", "b", "c"],
+  "status" : "no changes"
 }, {
-  "key": "chars2",
-  "Old value": ["d", "e", "f"]
-  "New value": false
-  "status": "updated"
+  "key" : "chars2",
+  "Old value" : ["d", "e", "f"],
+  "New value" : false,
+  "status" : "updated"
 }, {
-  "key": "checked",
-  "Old value": false
-  "New value": true
-  "status": "updated"
+  "key" : "checked",
+  "Old value" : false,
+  "New value" : true,
+  "status" : "updated"
 }, {
-  "key": "default",
-  "Old value": null
-  "New value": ["value1", "value2"]
-  "status": "updated"
+  "key" : "default",
+  "Old value" : null,
+  "New value" : ["value1", "value2"],
+  "status" : "updated"
 }, {
-  "key": "id",
-  "Old value": 45
-  "New value": null
-  "status": "updated"
+  "key" : "id",
+  "Old value" : 45,
+  "New value" : null,
+  "status" : "updated"
 }, {
-  "key": "key1",
-  "Old value": "value1"
-  "New value": "value2"
-  "status": "updated"
+  "key" : "key1",
+  "Old value" : "value1",
+  "New value" : "value2",
+  "status" : "updated"
 }, {
-  "key": "numbers1",
-  "Old value": [1, 2, 3, 4]
-  "status": "no changes"
+  "key" : "numbers1",
+  "Old value" : [1, 2, 3, 4],
+  "status" : "no changes"
 }, {
-  "key": "numbers2",
-  "Old value": [2, 3, 4, 5]
-  "New value": [22, 33, 44, 55]
-  "status": "updated"
+  "key" : "numbers2",
+  "Old value" : [2, 3, 4, 5],
+  "New value" : [22, 33, 44, 55],
+  "status" : "updated"
 }, {
-
-}]
+  "key" : "number3",
+  "Old value" : [3, 4, 5],
+  "status" : "deleted"
+}, {
+  "key" : "number4",
+  "New value" : [4, 5, 6],
+  "status" : "added"
+}, {
+  "key" : "obj1",
+  "New value" : {
+    "nestedKey" : "value",
+    "isNested" : true
+  },
+  "status" : "added"
+}, {
+  "key" : "setting1",
+  "Old value" : "Some value",
+  "New value" : "Another value",
+  "status" : "updated"
+}, {
+  "key" : "setting2",
+  "Old value" : 200,
+  "New value" : 300,
+  "status" : "updated"
+}, {
+  "key" : "setting3",
+  "Old value" : true,
+  "New value" : "none",
+  "status" : "updated"
+} ]

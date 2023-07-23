@@ -8,7 +8,7 @@ public class BuildDifference {
 
         Set<String> unionMap = new TreeSet<>(map1.keySet());
         unionMap.addAll(map2.keySet());
-        List list = new ArrayList(unionMap);
+        List list = new ArrayList<>(unionMap);
 
         for (String key: unionMap) {
             //отображение с запоминанием порядка, в котором добавлялись элементы
