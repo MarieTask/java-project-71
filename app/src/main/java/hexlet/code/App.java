@@ -17,9 +17,9 @@ class App implements Callable<Integer> {
             description = "output format [default: stylish]")
     private String format;
     @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
-    boolean usageHelpRequested;
+    private boolean usageHelpRequested;
     @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
-    boolean versionInfoRequested;
+    private boolean versionInfoRequested;
 
     private static final int SUCCESS_EXIT_CODE = 0;
     private static final int ERROR_EXIT_CODE = 1;

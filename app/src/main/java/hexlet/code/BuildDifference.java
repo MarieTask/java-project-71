@@ -1,10 +1,17 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.LinkedHashMap;
+import java.util.Objects;
+
 
 public class BuildDifference {
-    public static List<Map<String,Object>> buildDifference (Map<String, Object> map1, Map<String, Object> map2) {
-        List<Map<String,Object>> result = new ArrayList<>();
+    public static List<Map<String,Object>> buildDifference(Map<String, Object> map1, Map<String, Object> map2) {
+        List<Map<String, Object>> result = new ArrayList<>();
 
         Set<String> unionMap = new TreeSet<>(map1.keySet());
         unionMap.addAll(map2.keySet());
@@ -12,14 +19,16 @@ public class BuildDifference {
 
         for (String key: unionMap) {
             //отображение с запоминанием порядка, в котором добавлялись элементы
-            Map<String,Object> map = new LinkedHashMap<>();
+            Map<String, Object> map = new LinkedHashMap<>();
             // No changes
-            if (map1.containsKey(key) && map2.containsKey(key) && Objects.equals(map1.get(key), (map2.get(key)))) {
+            if (map1.containsKey(key) && map2.containsKey(key) && Objects.equals(map1.get(key),
+                    (map2.get(key)))) {
                 map.put("key", key);
                 map.put("Old value", map1.get(key));
                 map.put("status", "no changes");
                 // Key value was update
-            } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(map1.get(key), (map2.get(key)))) {
+            } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(map1.get(key),
+                    (map2.get(key)))) {
                 map.put("key", key);
                 map.put("Old value", map1.get(key));
                 map.put("New value", map2.get(key));

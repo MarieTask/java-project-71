@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Map;
+import java.util.List;
+
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
@@ -21,7 +23,7 @@ public class Differ {
         String fileFormat2 = getFileFormat(filepath2);
         Map<String, Object> map2 = Parser.parse(fileContent2, fileFormat2);
 
-        List<Map<String,Object>> data = BuildDifference.buildDifference(map1, map2);
+        List<Map<String, Object>> data = BuildDifference.buildDifference(map1, map2);
         return Formatter.dataToRightFormat(data, format);
     }
 
