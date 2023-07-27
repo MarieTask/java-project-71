@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Formatter {
-    public static String dataToRightFormat(List<Map<String, Object>> data, String format) {
-        return switch (format) {
+    public static String dataToRightFormat(List<Map<String, Object>> data, String extension) {
+        return switch (extension) {
             case "stylish" -> Stylish.getStylish(data);
             case "json" -> Json.getJson(data);
             case "plain" -> Plain.getPlain(data);
-            default -> throw new IllegalArgumentException("Unknown data format:" + format);
+            default -> throw new IllegalArgumentException("Unknown data format:" + extension);
         };
     }
 }

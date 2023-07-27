@@ -10,41 +10,40 @@ import java.util.Objects;
 
 
 public class BuildDifference {
-    public static List<Map<String, Object>> buildDifference(Map<String, Object> map1, Map<String, Object> map2) {
+    public static List<Map<String, Object>> buildDifference(Map<String, Object> data1, Map<String, Object> data2) {
         List<Map<String, Object>> result = new ArrayList<>();
 
-        Set<String> unionMap = new TreeSet<>(map1.keySet());
-        unionMap.addAll(map2.keySet());
-        List list = new ArrayList<>(unionMap);
+        Set<String> unionData = new TreeSet<>(data1.keySet());
+        unionData.addAll(data2.keySet());
 
-        for (String key: unionMap) {
+        for (String key: unionData) {
             //отображение с запоминанием порядка, в котором добавлялись элементы
-            Map<String, Object> map = new LinkedHashMap<>();
+            Map<String, Object> data = new LinkedHashMap<>();
             // No changes
-            if (map1.containsKey(key) && map2.containsKey(key) && Objects.equals(map1.get(key),
-                    (map2.get(key)))) {
-                map.put("key", key);
-                map.put("Old value", map1.get(key));
-                map.put("status", "no changes");
+            if (data1.containsKey(key) && data2.containsKey(key) && Objects.equals(data1.get(key),
+                    (data2.get(key)))) {
+                data.put("key", key);
+                data.put("old_value", data.get(key));
+                data.put("status", "no changes");
                 // Key value was update
-            } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(map1.get(key),
-                    (map2.get(key)))) {
-                map.put("key", key);
-                map.put("Old value", map1.get(key));
-                map.put("New value", map2.get(key));
-                map.put("status", "updated");
+            } else if (data1.containsKey(key) && data2.containsKey(key) && !Objects.equals(data1.get(key),
+                    (data2.get(key)))) {
+                data.put("key", key);
+                data.put("old_value", data1.get(key));
+                data.put("new_value", data2.get(key));
+                data.put("status", "updated");
                 // Key was added
-            } else if (!map1.containsKey(key) && map2.containsKey(key)) {
-                map.put("key", key);
-                map.put("New value", map2.get(key));
-                map.put("status", "added");
+            } else if (!data1.containsKey(key) && data2.containsKey(key)) {
+                data.put("key", key);
+                data.put("new_value", data2.get(key));
+                data.put("status", "added");
                 // Key was deleted
             } else {
-                map.put("key", key);
-                map.put("Old value", map1.get(key));
-                map.put("status", "deleted");
+                data.put("key", key);
+                data.put("old_value", data1.get(key));
+                data.put("status", "deleted");
             }
-            result.add(map);
+            result.add(data);
         }
         return result;
     }
