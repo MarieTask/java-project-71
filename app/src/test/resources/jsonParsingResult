@@ -1,72 +1,72 @@
 [ {
   "key" : "chars1",
-  "Old value" : [ "a", "b", "c" ],
+  "old_value" : [ "a", "b", "c" ],
   "status" : "no changes"
 }, {
   "key" : "chars2",
-  "Old value" : [ "d", "e", "f" ],
-  "New value" : false,
+  "old_value" : [ "d", "e", "f" ],
+  "new_value" : false,
   "status" : "updated"
 }, {
   "key" : "checked",
-  "Old value" : false,
-  "New value" : true,
+  "old_value" : false,
+  "new_value" : true,
   "status" : "updated"
 }, {
   "key" : "default",
-  "Old value" : null,
-  "New value" : [ "value1", "value2" ],
+  "old_value" : null,
+  "new_value" : [ "value1", "value2" ],
   "status" : "updated"
 }, {
   "key" : "id",
-  "Old value" : 45,
-  "New value" : null,
+  "old_value" : 45,
+  "new_value" : null,
   "status" : "updated"
 }, {
   "key" : "key1",
-  "Old value" : "value1",
+  "old_value" : "value1",
   "status" : "deleted"
 }, {
   "key" : "key2",
-  "New value" : "value2",
+  "old_value" : "value2",
   "status" : "added"
 }, {
   "key" : "numbers1",
-  "Old value" : [ 1, 2, 3, 4 ],
+  "old_value" : [ 1, 2, 3, 4 ],
   "status" : "no changes"
 }, {
   "key" : "numbers2",
-  "Old value" : [ 2, 3, 4, 5 ],
-  "New value" : [ 22, 33, 44, 55 ],
+  "old_value" : [ 2, 3, 4, 5 ],
+  "new_value" : [ 22, 33, 44, 55 ],
   "status" : "updated"
 }, {
   "key" : "numbers3",
-  "Old value" : [ 3, 4, 5 ],
+  "old_value" : [ 3, 4, 5 ],
   "status" : "deleted"
 }, {
   "key" : "numbers4",
-  "New value" : [ 4, 5, 6 ],
+  "new_value" : [ 4, 5, 6 ],
   "status" : "added"
 }, {
   "key" : "obj1",
-  "New value" : {
+  "new_value" : {
     "nestedKey" : "value",
     "isNested" : true
   },
   "status" : "added"
 }, {
   "key" : "setting1",
-  "Old value" : "Some value",
-  "New value" : "Another value",
+  "old_value" : "Some value",
+  "new_value" : "Another value",
   "status" : "updated"
 }, {
   "key" : "setting2",
-  "Old value" : 200,
-  "New value" : 300,
+  "old_value" : 200,
+  "new_value" : 300,
   "status" : "updated"
 }, {
   "key" : "setting3",
-  "Old value" : true,
-  "New value" : "none",
+  "old_value" : true,
+  "new_value" : "none",
   "status" : "updated"
 } ]

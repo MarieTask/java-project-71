@@ -31,25 +31,23 @@ public class Differ {
         return path.substring(path.indexOf(".") + 1);
     }
     public static String generate(String path1, String path2, String extension) throws Exception {
-        String getContent1 = getContent(path1);
-        String getExtension1 = getExtension(path1);
+        String content1 = getContent(path1);
+        String extension1 = getExtension(path1);
         //Мы можем преобразовать JSON в Java Map, что очень удобно, если мы не знаем,
         //чего ожидать от файла JSON, который мы пытаемся спарсить.
         // ObjectMapper превратит имя каждой переменной в JSON в ключ для Map,
         // а значение этой переменной — в значение по этому ключу.
-        Map<String, Object> map1 = Parser.parse(getContent1, getExtension1);
+        Map<String, Object> map1 = Parser.parse(content1, extension1);
         //JSON to Java Object
 
-        String getContent2 = getContent(path2);
-        String getExtension2 = getExtension(path2);
-        Map<String, Object> map2 = Parser.parse(getContent2, getExtension2);
+        String content2 = getContent(path2);
+        String extension2 = getExtension(path2);
+        Map<String, Object> map2 = Parser.parse(content2, extension2);
 
         List<Map<String, Object>> data = BuildDifference.buildDifference(map1, map2);
         return Formatter.dataToRightFormat(data, extension);
     }
-
-    public static String generate(String path1, String path2) throws Exception {
-        return generate(path1, path2, "stylish");
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
     }
-
 }
