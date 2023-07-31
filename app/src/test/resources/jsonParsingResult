@@ -28,7 +28,7 @@
   "status" : "deleted"
 }, {
   "key" : "key2",
-  "old_value" : "value2",
+  "new_value" : "value2",
   "status" : "added"
 }, {
   "key" : "numbers1",
