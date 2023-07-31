@@ -9,8 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 
 
-public class BuildDifference {
-    public static List<Map<String, Object>> buildDifference(Map<String, Object> data1, Map<String, Object> data2) {
+public class DiffBuilder {
+    public static List<Map<String, Object>> build(Map<String, Object> data1, Map<String, Object> data2) {
         List<Map<String, Object>> result = new ArrayList<>();
 
         Set<String> unionData = new TreeSet<>(data1.keySet());

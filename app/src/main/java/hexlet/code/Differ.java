@@ -43,7 +43,7 @@ public class Differ {
         return generate(content1, content2, "stylish");
     }
     public static String generate(String content1, String content2, String extension) throws Exception {
-        List<Map<String, Object>> data = BuildDifference.buildDifference(getData(content1), getData(content2));
+        List<Map<String, Object>> data = DiffBuilder.build(getData(content1), getData(content2));
         return Formatter.dataToRightFormat(data, extension);
     }
 }
