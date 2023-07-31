@@ -15,7 +15,6 @@ public class BuildDifference {
 
         Set<String> unionData = new TreeSet<>(data1.keySet());
         unionData.addAll(data2.keySet());
-        List list = new ArrayList<>(unionData);
 
         for (String key: unionData) {
             //отображение с запоминанием порядка, в котором добавлялись элементы

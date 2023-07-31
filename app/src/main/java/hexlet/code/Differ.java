@@ -28,7 +28,7 @@ public class Differ {
 
     // выбор парсера, исходя из расширения
     public static String getExtension(String path) {
-        return path.substring(path.indexOf(".") + 1).toString();
+        return path.substring(path.indexOf(".") + 1);
     }
     public static String generate(String path1, String path2, String extension) throws Exception {
         String content1 = getContent(path1);
@@ -37,14 +37,14 @@ public class Differ {
         //чего ожидать от файла JSON, который мы пытаемся спарсить.
         // ObjectMapper превратит имя каждой переменной в JSON в ключ для Map,
         // а значение этой переменной — в значение по этому ключу.
-        Map<String, Object> map1 = Parser.parse(content1, extension1);
+        Map<String, Object> data1 = Parser.parse(content1, extension1);
         //JSON to Java Object
 
         String content2 = getContent(path2);
         String extension2 = getExtension(path2);
-        Map<String, Object> map2 = Parser.parse(content2, extension2);
+        Map<String, Object> data2 = Parser.parse(content2, extension2);
 
-        List<Map<String, Object>> data = BuildDifference.buildDifference(map1, map2);
+        List<Map<String, Object>> data = BuildDifference.buildDifference(data1, data2);
         return Formatter.dataToRightFormat(data, extension);
     }
     public static String generate(String path1, String path2) throws Exception {
