@@ -7,17 +7,19 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.IOException;
 import java.util.Map;
 
+import static hexlet.code.Differ.getExtension;
+
 public class Parser {
     public static Map<String, Object> parse(String content, String extension) throws IOException {
-        ObjectMapper om = determineFormat(extension);
+        ObjectMapper om = determineExtension(extension);
         return om.readValue(content, new TypeReference<>() { });
     }
-    public static ObjectMapper determineFormat(String extension) throws IOException {
-        if (extension.equalsIgnoreCase("json")) {
+    public static ObjectMapper determineExtension(String path) throws IOException {
+        if (getExtension(path).equalsIgnoreCase("json")) {
             return new ObjectMapper();
-        } else if (extension.equalsIgnoreCase("yaml")) {
+        } else if (getExtension(path).equalsIgnoreCase("yaml")) {
             return new ObjectMapper(new YAMLFactory());
-        } else if (extension.equalsIgnoreCase("yml")) {
+        } else if (getExtension(path).equalsIgnoreCase("yml")) {
             return new ObjectMapper(new YAMLFactory());
         } else {
             throw new IOException("Unknown data format. Try again.");

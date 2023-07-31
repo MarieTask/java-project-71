@@ -30,6 +30,9 @@ public class Differ {
     public static String getExtension(String path) {
         return path.substring(path.indexOf(".") + 1);
     }
+    public static String generate(String path1, String path2) throws Exception {
+        return generate(path1, path2, "stylish");
+    }
     public static String generate(String path1, String path2, String extension) throws Exception {
         String content1 = getContent(path1);
         String extension1 = getExtension(path1);
@@ -46,8 +49,5 @@ public class Differ {
 
         List<Map<String, Object>> data = BuildDifference.buildDifference(data1, data2);
         return Formatter.dataToRightFormat(data, extension);
-    }
-    public static String generate(String path1, String path2) throws Exception {
-        return generate(path1, path2, "stylish");
     }
 }
