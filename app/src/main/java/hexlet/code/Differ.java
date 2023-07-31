@@ -28,7 +28,7 @@ public class Differ {
 
     // выбор парсера, исходя из расширения
     public static String getExtension(String path) {
-        return path.substring(path.indexOf(".") + 1);
+        return path.substring(path.indexOf(".") + 1).toString();
     }
     public static String generate(String path1, String path2, String extension) throws Exception {
         String content1 = getContent(path1);
