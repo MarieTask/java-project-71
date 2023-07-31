@@ -14,7 +14,8 @@ public class Stylish {
                         map.get("old_value"), map.get("key"), map.get("new_value")));
                 case "deleted" -> sb.append(String.format("  - %s: %s\n", map.get("key"), map.get("old_value")));
                 case "added" -> sb.append(String.format("  + %s: %s\n", map.get("key"), map.get("new_value")));
-                default -> throw new IllegalArgumentException("Unknown status:" + key);
+                default -> {
+                }
             }
         }
         return sb.append("}").toString();

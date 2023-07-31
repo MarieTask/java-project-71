@@ -14,7 +14,8 @@ public class Plain {
                 case "deleted" -> sb.append(String.format("Property '%s' was removed\n", map.get("key")));
                 case "added" -> sb.append(String.format("Property '%s' was added with value: %s\n",
                         map.get("key"), correctView(map.get("new_value"))));
-                default -> throw new IllegalArgumentException("Unknown status:" + key);
+                default -> {
+                }
             }
         }
         return sb.toString().trim();
