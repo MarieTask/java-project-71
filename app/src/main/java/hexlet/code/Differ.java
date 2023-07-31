@@ -30,24 +30,20 @@ public class Differ {
     public static String getExtension(String path) {
         return path.substring(path.indexOf(".") + 1);
     }
-    public static String generate(String path1, String path2) throws Exception {
-        return generate(path1, path2, "stylish");
-    }
-    public static String generate(String path1, String path2, String extension) throws Exception {
-        String content1 = getContent(path1);
-        String extension1 = getExtension(path1);
+    public static Map<String, Object> getData(String path) throws Exception {
+        String content = getContent(path);
+        String extension = getExtension(path);
         //Мы можем преобразовать JSON в Java Map, что очень удобно, если мы не знаем,
         //чего ожидать от файла JSON, который мы пытаемся спарсить.
         // ObjectMapper превратит имя каждой переменной в JSON в ключ для Map,
         // а значение этой переменной — в значение по этому ключу.
-        Map<String, Object> data1 = Parser.parse(content1, extension1);
-        //JSON to Java Object
-
-        String content2 = getContent(path2);
-        String extension2 = getExtension(path2);
-        Map<String, Object> data2 = Parser.parse(content2, extension2);
-
-        List<Map<String, Object>> data = BuildDifference.buildDifference(data1, data2);
+        return Parser.parse(content, extension);
+    }
+    public static String generate(String content1, String content2) throws Exception {
+        return generate(content1, content2, "stylish");
+    }
+    public static String generate(String content1, String content2, String extension) throws Exception {
+        List<Map<String, Object>> data = BuildDifference.buildDifference(getData(content1), getData(content2));
         return Formatter.dataToRightFormat(data, extension);
     }
 }
