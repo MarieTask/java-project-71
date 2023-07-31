@@ -23,7 +23,7 @@ public class BuildDifference {
             if (data1.containsKey(key) && data2.containsKey(key) && Objects.equals(data1.get(key),
                     (data2.get(key)))) {
                 data.put("key", key);
-                data.put("old_value", data.get(key));
+                data.put("old_value", data1.get(key));
                 data.put("status", "no changes");
                 // Key value was update
             } else if (data1.containsKey(key) && data2.containsKey(key) && !Objects.equals(data1.get(key),
