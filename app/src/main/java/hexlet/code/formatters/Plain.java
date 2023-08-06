@@ -6,14 +6,17 @@ import java.util.Map;
 public class Plain {
     public static String getPlain(List<Map<String, Object>> data) {
         StringBuilder sb = new StringBuilder();
+        String updatedDate = "Property '%s' was updated. From %s to %s\n";
+        String deletedDate = "Property '%s' was removed\n";
+        String addedDate = "Property '%s' was added with value: %s\n";
         for (Map<String, Object> map: data) {
             var key = map.get("status").toString();
             switch (key) {
-                case "updated" -> sb.append(String.format("Property '%s' was updated. From %s to %s\n",
-                        map.get("key"), correctView(map.get("old_value")), correctView(map.get("new_value"))));
-                case "deleted" -> sb.append(String.format("Property '%s' was removed\n", map.get("key")));
-                case "added" -> sb.append(String.format("Property '%s' was added with value: %s\n",
-                        map.get("key"), correctView(map.get("new_value"))));
+                case "updated" -> sb.append(String.format(updatedDate, map.get("key"),
+                        correctView(map.get("old_value")), correctView(map.get("new_value"))));
+                case "deleted" -> sb.append(String.format(deletedDate, map.get("key")));
+                case "added" -> sb.append(String.format(addedDate, map.get("key"),
+                        correctView(map.get("new_value"))));
                 default -> {
                 }
             }
