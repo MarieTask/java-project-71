@@ -37,7 +37,7 @@ public class Differ {
         //чего ожидать от файла JSON, который мы пытаемся спарсить.
         // ObjectMapper превратит имя каждой переменной в JSON в ключ для Map,
         // а значение этой переменной — в значение по этому ключу.
-        return Parser.parse(content, extension);
+        return (Map<String, Object>) ParserFactory.getParser(content);
     }
     public static String generate(String content1, String content2) throws Exception {
         return generate(content1, content2, "stylish");

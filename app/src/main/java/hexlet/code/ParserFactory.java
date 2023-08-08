@@ -7,16 +7,17 @@ import java.io.IOException;
 
 import static hexlet.code.Differ.getExtension;
 
-public class ParserFactory extends Parser {
-    public static ObjectMapper determineExtension(String path) throws IOException {
-        if (getExtension(path).equalsIgnoreCase("json")) {
-            return new ObjectMapper();
-        } else if (getExtension(path).equalsIgnoreCase("yaml")) {
-            return new ObjectMapper(new YAMLFactory());
-        } else if (getExtension(path).equalsIgnoreCase("yml")) {
-            return new ObjectMapper(new YAMLFactory());
-        } else {
-            throw new IOException("Unknown data format. Try again.");
+public class ParserFactory {
+    public static Parser getParser(String extension) throws IOException {
+        switch (extension) {
+            case "json" -> {
+                return new JsonParser();
+            }
+            case "yaml", "yml" -> {
+                return new YmlParser();
+            }
+            default -> throw new IOException("Unknown extension. Try again.");
         }
     }
 }
+
