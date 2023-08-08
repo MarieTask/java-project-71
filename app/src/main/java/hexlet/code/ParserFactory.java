@@ -5,10 +5,11 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.IOException;
 
+import static hexlet.code.Differ.getContent;
 import static hexlet.code.Differ.getExtension;
 
 public class ParserFactory {
-    public static Parser getParser(String extension) throws IOException {
+    public static Parser getParser(String extension) {
         switch (extension) {
             case "json" -> {
                 return new JsonParser();
@@ -16,7 +17,7 @@ public class ParserFactory {
             case "yaml", "yml" -> {
                 return new YmlParser();
             }
-            default -> throw new IOException("Unknown extension. Try again.");
+            default -> throw new IllegalArgumentException("Unknown extension. Try again.");
         }
     }
 }
