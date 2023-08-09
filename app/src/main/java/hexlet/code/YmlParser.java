@@ -8,7 +8,6 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.util.Map;
 
 public class YmlParser implements Parser {
-    @Override
     public Map<String, Object> parse(String content) {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
