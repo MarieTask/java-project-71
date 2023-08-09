@@ -28,7 +28,8 @@ public class Differ {
 
     // выбор парсера, исходя из расширения
     public static String getExtension(String path) {
-        return path.substring(path.indexOf(".") + 1);
+        String absPath = getAbsolutePath(path).toString();
+        return absPath.substring(absPath.lastIndexOf("."));
     }
     public static Map<String, Object> getData(String path) throws Exception {
         String content = getContent(path);
