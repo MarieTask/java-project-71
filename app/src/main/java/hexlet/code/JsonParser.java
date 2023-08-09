@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 
 public class JsonParser implements Parser {
-
     @Override
     public Map<String, Object> parse(String content) {
         ObjectMapper mapper = new ObjectMapper();
