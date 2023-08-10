@@ -24,7 +24,7 @@ class App implements Callable<Integer> {
     private static final int SUCCESS_EXIT_CODE = 0;
     private static final int ERROR_EXIT_CODE = 1;
     @Override
-    public Integer call() throws Exception {
+    public Integer call() {
         try {
             System.out.println(Differ.generate(path1, path2, extension));
             return SUCCESS_EXIT_CODE;
