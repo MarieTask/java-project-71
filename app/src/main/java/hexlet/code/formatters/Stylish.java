@@ -20,8 +20,8 @@ public class Stylish {
                 case "added" -> sb.append(String.format(addedDate, map.get("key"), map.get("new_value")));
                 default ->
                         throw new RuntimeException(key);
-                }
             }
+        }
         return sb.append("}").toString();
     }
 }
