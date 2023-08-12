@@ -17,6 +17,7 @@ public class Plain {
                 case "deleted" -> sb.append(String.format(deletedDate, map.get("key")));
                 case "added" -> sb.append(String.format(addedDate, map.get("key"),
                         normalize(map.get("new_value"))));
+                case "unchanged" -> sb.append(String.format(""));
                 default ->
                         throw new RuntimeException(key);
             }
