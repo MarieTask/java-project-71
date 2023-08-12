@@ -1,27 +1,27 @@
 [ {
   "key" : "chars1",
   "old_value" : [ "a", "b", "c" ],
-  "status" : "no changes"
+  "status" : "unchanged"
 }, {
   "key" : "chars2",
   "old_value" : [ "d", "e", "f" ],
   "new_value" : false,
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "checked",
   "old_value" : false,
   "new_value" : true,
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "default",
   "old_value" : null,
   "new_value" : [ "value1", "value2" ],
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "id",
   "old_value" : 45,
   "new_value" : null,
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "key1",
   "old_value" : "value1",
@@ -33,12 +33,12 @@
 }, {
   "key" : "numbers1",
   "old_value" : [ 1, 2, 3, 4 ],
-  "status" : "no changes"
+  "status" : "unchanged"
 }, {
   "key" : "numbers2",
   "old_value" : [ 2, 3, 4, 5 ],
   "new_value" : [ 22, 33, 44, 55 ],
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "numbers3",
   "old_value" : [ 3, 4, 5 ],
@@ -58,15 +58,15 @@
   "key" : "setting1",
   "old_value" : "Some value",
   "new_value" : "Another value",
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "setting2",
   "old_value" : 200,
   "new_value" : 300,
-  "status" : "updated"
+  "status" : "changed"
 }, {
   "key" : "setting3",
   "old_value" : true,
   "new_value" : "none",
-  "status" : "updated"
+  "status" : "changed"
 } ]

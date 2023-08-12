@@ -13,7 +13,7 @@ public class Formatter {
             case "stylish" -> Stylish.getStylish(data);
             case "json" -> Json.getJson(data);
             case "plain" -> Plain.getPlain(data);
-            default -> throw new IllegalArgumentException("Unknown data format:" + extension);
+            default -> throw new IllegalArgumentException("Unknown data extension:" + extension);
         };
     }
 }

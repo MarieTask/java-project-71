@@ -30,6 +30,8 @@ class App implements Callable<Integer> {
             return SUCCESS_EXIT_CODE;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            // Getting the actual cause of the exception
+            System.out.println(e.getCause());
             return ERROR_EXIT_CODE;
         }
     }

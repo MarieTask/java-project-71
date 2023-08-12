@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.parsers;
 
 public class ParserFactory {
     public static final String JSON = "json";
@@ -13,7 +13,8 @@ public class ParserFactory {
             case YAML, YML -> {
                 return new YmlParser();
             }
-            default -> throw new IllegalArgumentException("Unknown extension. Try again.");
+            default -> throw new IllegalArgumentException("Unknown extension:" + extension
+                    + ". Try again.");
         }
     }
 }

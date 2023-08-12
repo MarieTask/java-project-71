@@ -13,35 +13,34 @@ public class DiffBuilder {
     public static List<Map<String, Object>> build(Map<String, Object> data1, Map<String, Object> data2) {
         List<Map<String, Object>> result = new ArrayList<>();
 
-        Set<String> unionData = new TreeSet<>(data1.keySet());
-        unionData.addAll(data2.keySet());
+        Set<String> keys = new TreeSet<>(data1.keySet());
+        keys.addAll(data2.keySet());
 
-        for (String key: unionData) {
+        for (String key: keys) {
             //отображение с запоминанием порядка, в котором добавлялись элементы
             Map<String, Object> data = new LinkedHashMap<>();
-            // No changes
-            if (data1.containsKey(key) && data2.containsKey(key) && Objects.equals(data1.get(key),
-                    (data2.get(key)))) {
+                // Key was added
+            if (!data1.containsKey(key) && data2.containsKey(key)) {
+                data.put("key", key);
+                data.put("new_value", data2.get(key));
+                data.put("status", "added");
+                // Key was deleted
+            } else if (data1.containsKey(key) && !data2.containsKey(key)) {
                 data.put("key", key);
                 data.put("old_value", data1.get(key));
-                data.put("status", "no changes");
+                data.put("status", "deleted");
                 // Key value was update
             } else if (data1.containsKey(key) && data2.containsKey(key) && !Objects.equals(data1.get(key),
                     (data2.get(key)))) {
                 data.put("key", key);
                 data.put("old_value", data1.get(key));
                 data.put("new_value", data2.get(key));
-                data.put("status", "updated");
-                // Key was added
-            } else if (!data1.containsKey(key) && data2.containsKey(key)) {
-                data.put("key", key);
-                data.put("new_value", data2.get(key));
-                data.put("status", "added");
-                // Key was deleted
+                data.put("status", "changed");
+                // No changes
             } else {
                 data.put("key", key);
                 data.put("old_value", data1.get(key));
-                data.put("status", "deleted");
+                data.put("status", "unchanged");
             }
             result.add(data);
         }

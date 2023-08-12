@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.parsers.ParserFactory;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,8 +30,7 @@ public class Differ {
 
     // выбор парсера, исходя из расширения
     public static String getExtension(String path) {
-        String absPath = getAbsolutePath(path).toString();
-        return absPath.substring(absPath.lastIndexOf(".") + 1);
+        return path.substring(path.lastIndexOf(".") + 1);
     }
     public static Map<String, Object> getData(String path) throws Exception {
         String content = getContent(path);
@@ -40,11 +41,11 @@ public class Differ {
         // а значение этой переменной — в значение по этому ключу.
         return ParserFactory.getParser(extension).parse(content);
     }
-    public static String generate(String content1, String content2) throws Exception {
-        return generate(content1, content2, "stylish");
+    public static String generate(String path1, String path2) throws Exception {
+        return generate(path1, path2, "stylish");
     }
-    public static String generate(String content1, String content2, String extension) throws Exception {
-        List<Map<String, Object>> data = DiffBuilder.build(getData(content1), getData(content2));
+    public static String generate(String path1, String path2, String extension) throws Exception {
+        List<Map<String, Object>> data = DiffBuilder.build(getData(path1), getData(path2));
         return Formatter.dataToRightFormat(data, extension);
     }
 }
